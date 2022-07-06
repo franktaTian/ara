@@ -14,8 +14,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Author: Matteo Pesaresi 10/10/2017
-//         Matteo Perotti (clean-up)
+// Author: Matteo Perotti <mperotti@iis.ee.ethz.ch>
+//         Scalar version ispired by "Matteo Pesaresi 10/10/2017"
 
 #include <stdio.h>
 #include "wavelet.h"
