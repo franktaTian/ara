@@ -28,6 +28,12 @@ then
   args="${@:2}"
   # Use default values if args is not set
   [ -z "$args" ] && args="112 7"
+elif [[ $app == *"dwt"* ]]
+then
+  # DWT needs the vector length
+  args="${@:2}"
+  # Use default values if args is not set
+  [ -z "$args" ] && args="512"
 else
   # Other program datagens do not need any arguments
   args=
