@@ -56,7 +56,7 @@ typedef struct {
   int n;
 } gsl_wavelet_workspace;
 
-void gsl_wavelet_transform (float *data, size_t n, float* buf);
-void gsl_wavelet_transform_vector(float *data, size_t n, float* buf);
+void gsl_wavelet_transform (float *data, size_t n, float* buf, int first_iter_only);
+void gsl_wavelet_transform_vector(float *data, size_t n, float* buf, int first_iter_only);
 static inline void dwt_step(const gsl_wavelet *w, float *samples, size_t n, float *buf);
 static inline void dwt_step_vector(const gsl_wavelet *w, float *samples, size_t n, float *buf);

@@ -53,7 +53,7 @@ static inline void dwt_step(const gsl_wavelet *w, float *a, size_t n, float* buf
   }
 }
 
-void gsl_wavelet_transform(float *data, size_t n, float* buf) {
+void gsl_wavelet_transform(float *data, size_t n, float* buf, int first_iter_only) {
 
   gsl_wavelet haar;
   gsl_wavelet *w;
@@ -67,6 +67,7 @@ void gsl_wavelet_transform(float *data, size_t n, float* buf) {
 
   for (i = n; i >= 2; i >>= 1) {
     dwt_step(w, data, i, buf);
+    if (first_iter_only) i = 0;
   }
 }
 
@@ -130,7 +131,7 @@ static inline void dwt_step_vector(const gsl_wavelet *w, float *samples, size_t 
 }
 
 // The signal should be already padded
-void gsl_wavelet_transform_vector(float *data, size_t n, float* buf) {
+void gsl_wavelet_transform_vector(float *data, size_t n, float* buf, int first_iter_only) {
 
   gsl_wavelet haar;
   gsl_wavelet *w;
@@ -144,5 +145,6 @@ void gsl_wavelet_transform_vector(float *data, size_t n, float* buf) {
 
   for (i = n; i >= 2; i >>= 1) {
     dwt_step_vector(w, data, i, buf);
+    if (first_iter_only) i = 0;
   }
 }
